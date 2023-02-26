@@ -1,0 +1,14 @@
+
+{% extends 'website/base.html' %}
+{% load static%}
+{% block content %}
+<div class="container jumbotron">
+    <form method="POST" action="" >
+        {% csrf_token %}
+        {{form}}
+        {{customerform}}
+
+        <input class="btn btn-success" type="submit" value="SignUp">
+    </form>
+</div>
+{% endblock %}

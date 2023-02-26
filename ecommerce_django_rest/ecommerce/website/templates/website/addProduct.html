@@ -1,0 +1,16 @@
+{% extends 'website/base.html' %}
+{% load static%}
+{% block content %}
+<div class="container jumbotron">
+    <h2>Add New Product</h2>
+    <form method="POST" action="" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-success" type="submit" value="Add Product">
+    </form>
+</div>
+<br>
+<br>
+<a href="{% url 'addSpecs'  %}">Add Specs </a><br>
+<a href="{% url 'product'  %}">View Products </a>
+{% endblock %}

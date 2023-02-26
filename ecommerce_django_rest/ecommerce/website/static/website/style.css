@@ -1,0 +1,15 @@
+body{
+font-family:sans-seriff;
+color:cornflowerblue;
+background-color:floral-white;}'.myForm {
+    width:100%;
+    display:table;
+}
+.myForm div {
+    margin:0;
+    padding:0;
+    display:table-cell;
+}
+.myForm div:last-of-type{
+    text-align:right;
+}'

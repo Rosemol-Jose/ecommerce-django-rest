@@ -1,0 +1,32 @@
+{% extends 'website/base.html' %}
+{% block content %}
+{% load static %}
+<div align='left'><a href="{% url 'logout'  %}">Logout </a></div>
+<div class="container">
+<h1 align='center'>Products</h1>
+    <p align='center'>
+<img src="{% static 'website\products.jpg' %}" width="100 px">
+        <img src="{% static 'website\products1.jpg' %}" width="100 px">
+        <img src="{% static 'website\products2.jpg' %}" width="100 px">
+    </p>
+{% csrf_token %}
+        <dl>
+            {% for p  in products%}
+            <div class="myClass">
+             <h2>{{p.name}} </h2>
+                <dt>Details</dt>
+            <dd>-->{{p.details}}</dd>
+                <dt>Price</dt>
+                <dd>-->{{p.price}}</dd>
+                 <dt>Specs</dt>
+            {% for spec_obj  in p.specs_set.all%}
+            <dd>-->{{spec_obj.name}}:  {{spec_obj.value}}</dd>
+{% endfor %}
+            </div>
+
+        </dl>
+ </div>
+ {% endfor %}
+<hr>
+<a href="{% url 'addOrder' %}">Add orders</a>
+{% endblock %}
