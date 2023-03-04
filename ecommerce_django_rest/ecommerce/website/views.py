@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from .models import Product
 import uuid
 from rest_framework.permissions import IsAdminUser
-
+from .paginations import StandardResultsSetPagination
 
 class SignupApiView(generics.GenericAPIView):
     serializer_class = SignupSerializer
@@ -31,6 +31,7 @@ class ProductList(APIView):
     def get(self, request, format=None):
         orders = Product.objects.all()
         serializer = ProductSerializer(orders, many=True)
+        pagination_class=StandardResultsSetPagination
         return Response(serializer.data)
 
     def post(self, request, format=None):
